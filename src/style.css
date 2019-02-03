@@ -7,9 +7,19 @@ body {
   font-family: Helvetica;
 }
 
+/* For mobile phones: */
 .HomePage {
-  width: 600px;
+  width: 60%;
   margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+
+  .HomePage {
+    width: 600px;
+    margin: 0 auto;
+  }
 }
 
 .Header {
@@ -76,6 +86,7 @@ body {
   background: #d8ae64;
   border: none;
   color: white;
+  float: right;
 }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
