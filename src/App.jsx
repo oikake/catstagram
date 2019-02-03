@@ -1,9 +1,9 @@
 // Exercise 1: Render It
-// [] Write a class component
-// [] Make it a div with a className of "App"
-// [] Inside the div include the text "Welcome to Castagram"
+// [x] Write a class component
+// [x] Make it a div with a className of "App"
+// [x] Inside the div include the text "Welcome to Castagram"
 //    This can be used to check that the server is working.
-// [] "Export default" the "App" component!
+// [x] "Export default" the "App" component!
 
 // Exercise 2: Set It Up
 // [] Import "Header" and "Homepage"
@@ -18,4 +18,12 @@
 // [] Set up Route to with paths to each page
 //    (hint: HomePage should "/") and with the appropriate component
 
-import React from "react";
+import React, { Component } from "react";
+
+class App extends Component {
+  render() {
+    return <div>Welcome to Castagram</div>;
+  }
+}
+
+export default App;
