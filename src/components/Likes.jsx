@@ -8,11 +8,11 @@
 // [x] Likes should take in number of likes as a prop and display it.
 
 // Exercise 4: State It
-// [] Create a button that toggles between two states: "Liked" and "Not liked (yet)"
-// [] Add a constructor with initial state
-// [] Add a button to the rendered JSX with an onClick attribute
-// [] Add a method to handle the click/ change the state
-// [] Hook up the button text to the state
+// [x] Create a button that toggles between two states: "Liked" and "Not liked (yet)"
+// [x] Add a constructor with initial state
+// [x] Add a button to the rendered JSX with an onClick attribute
+// [x] Add a method to handle the click/ change the state
+// [x] Hook up the button text to the state
 
 // BONUS: Create a likes counter
 // [] Take in a prop for the number of likes
@@ -22,16 +22,38 @@
 import React, { Component } from "react";
 
 class Likes extends Component {
+  constructor(props) {
+    super(props);
+
+    const likesNum = this.props.likesTotal;
+
+    this.state = {
+      likesNum: likesNum,
+      liked: false
+    };
+  }
+
+  //   https://reactjs.org/docs/state-and-lifecycle.html#using-state-correctly
+  handleLikeButtonClick = () => {
+    const { likesNum, liked } = this.state;
+
+    this.setState({
+      likesNum: liked ? likesNum - 1 : likesNum + 1,
+      liked: !liked
+    });
+  };
+
   render() {
-    // const likesTotal = '000';
-    const { likesTotal } = this.props;
+    const { likesNum, liked } = this.state;
 
     return (
       <div className="Likes">
         <span>
-          <strong>{likesTotal}</strong> likes
+          <strong>{likesNum}</strong> total likes
         </span>
-        <button className="LikesButton">Like</button>
+        <button className="LikesButton" onClick={this.handleLikeButtonClick}>
+          {liked ? "Liked!" : "Not liked (yet)"}
+        </button>
       </div>
     );
   }
