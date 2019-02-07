@@ -6,8 +6,8 @@
 // [x] "Export default" the "App" component!
 
 // Exercise 2: Set It Up
-// [] Import "Header" and "Homepage"
-// [] Include them inside of "App" div
+// [x] Import "Header" and "Homepage"
+// [x] Include them inside of "App" div
 
 // Exercise 6: Routing
 // [] Allow your user to route to different pages!
@@ -19,10 +19,17 @@
 //    (hint: HomePage should "/") and with the appropriate component
 
 import React, { Component } from "react";
+import Header from "./components/Header.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 class App extends Component {
   render() {
-    return <div>Welcome to Castagram</div>;
+    return (
+      <div>
+        <Header />
+        <HomePage />
+      </div>
+    );
   }
 }
 
