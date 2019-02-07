@@ -1,13 +1,13 @@
 // Exercise 2: Set It Up
-// write a class component
-// make it a ul with a class name of Header
-// make four li: Catstagram, Home, About, Profile
-// put class name of Logo on the li element with GDInsta
-// export default the component!
+// [] Write a class component
+// [] Make it a ul with a className of "Header"
+// [] Make four li: "Catstagram", "Home", "About", "Profile"
+// [] Put className of "Logo" on the "Castagram" li element
+// [] "Export default" the "Header" component!
 
 // Exercise 6: Routing
-// import Link from react-router-dom
-// use the Link component to link to each route with a 'to' property
-// check that your links work!
+// [] Import "Link" from react-router-dom
+// [] Use the Link component to link to each route with a 'to' property
+// [] Check that your links work!
 
 import React from "react";
