@@ -1,8 +1,8 @@
 // Exercise 2: Set It Up
-// [] Write a class component
-// [] Make it a form element with className "ImageUploaderForm"
-// [] Write one input element and button element inside
-// [] "Export default" the "ImageUploaderForm" component!
+// [x] Write a class component
+// [x] Make it a form element with className "ImageUploaderForm"
+// [x] Write one input element and button element inside
+// [x] "Export default" the "ImageUploaderForm" component!
 
 // Exercise 5: Get InFormation
 // [] Rewrite this component to accept user input
@@ -32,4 +32,17 @@
 // takes the url of the photo updates photos state with by creating a new object in the photos data.
 // Make sure that function is called on handleSubmit in ImageUploaderForm!
 
-import React from "react";
+import React, { Component } from "react";
+
+class ImageUploaderForm extends Component {
+  render() {
+    return (
+      <form name="ImageUploaderForm">
+        <input />
+        <button>Submit</button>
+      </form>
+    );
+  }
+}
+
+export default ImageUploaderForm;
