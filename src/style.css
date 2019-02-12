@@ -74,19 +74,25 @@ body {
 .Likes {
   display: flex;
   flex-flow: row wrap;
-  padding: 20px;
+  padding: 5px;
 }
 
-.Likes span {
+.likes-text-container  {
   flex: 1;
+  padding: 5px;
+}
+
+.likes-buttons-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .LikesButton {
   text-align: right;
   background: #d8ae64;
-  border: none;
+  border-style: solid;
   color: white;
-  float: right;
+  white-space: nowrap;
 }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
