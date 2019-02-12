@@ -5,12 +5,12 @@
 // [x] "Export default" the "ImageUploaderForm" component!
 
 // Exercise 5: Get InFormation
-// [] Rewrite this component to accept user input
+// [x] Rewrite this component to accept user input
 //    The goal: When the user inputs a url, the component should log it to the console
 //    You might want to read a little bit more about forms here: https://reactjs.org/docs/forms.html
 //    but essentially, there are two parts to this:
-// [] 1) the input reflecting it's current value when the input changes
-// [] 2) and submitting the form.
+// [x] 1) the input reflecting it's current value when the input changes
+// [x] 2) and submitting the form.
 //    For 1), you will need to create an handleChange function and pass it as a prop to the <input> element.
 //    handleChange will set the state with the value of the target of the event passed to it.
 //    For 2) you will need to create a handleSubmit function and pass it as an onClick prop to the button.
@@ -35,11 +35,35 @@
 import React, { Component } from "react";
 
 class ImageUploaderForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: ""
+    };
+  }
+
+  handleChange = e => {
+    const url = e.target.value;
+    this.setState({ url: url });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const url = this.state.url;
+    console.log(url);
+  };
+
   render() {
+    const { url } = this.state.url;
+
     return (
       <form name="ImageUploaderForm">
-        <input />
-        <button>Submit</button>
+        <input
+          placeholder="Add URL here"
+          value={url}
+          onChange={this.handleChange}
+        />
+        <button onClick={this.handleSubmit}>Submit </button>
       </form>
     );
   }
