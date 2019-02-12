@@ -5,7 +5,7 @@
 // [x] "Export default" the component!
 
 // Exercise 3: Prop It Up
-// [] Likes should take in number of likes as a prop and display it.
+// [x] Likes should take in number of likes as a prop and display it.
 
 // Exercise 4: State It
 // [] Create a button that toggles between two states: "Liked" and "Not liked (yet)"
@@ -23,10 +23,13 @@ import React, { Component } from "react";
 
 class Likes extends Component {
   render() {
+    // const likesTotal = '000';
+    const { likesTotal } = this.props;
+
     return (
       <div className="Likes">
         <span>
-          TODO: <strong>"N"</strong> likes
+          <strong>{likesTotal}</strong> likes
         </span>
         <button className="LikesButton">Like</button>
       </div>

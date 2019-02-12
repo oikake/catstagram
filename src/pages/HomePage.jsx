@@ -6,7 +6,7 @@
 // [x] "Export default" the "HomePage" component!
 
 // Exercise 3: Prop It Up
-// [] Need to extract photos from data and then pass it into "FeedList"
+// [x] Need to extract photos from data and then pass it into "FeedList"
 
 // Exercise 5: Let’s Get InFormation - BONUS
 // [] In order to get "Homepage" render the photo url you have uploaded to "ImageUploader" form,
@@ -20,6 +20,8 @@ import data from "../../data.json";
 import ImageUploaderForm from "../components/ImageUploaderForm.jsx";
 import FeedList from "../components/FeedList.jsx";
 
+const { photos } = data;
+
 class HomePage extends Component {
   render() {
     return (
@@ -28,7 +30,7 @@ class HomePage extends Component {
         <ImageUploaderForm />
 
         <h2>Catz</h2>
-        <FeedList />
+        <FeedList photos={photos} />
       </div>
     );
   }

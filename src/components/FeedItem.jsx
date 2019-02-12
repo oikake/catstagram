@@ -6,8 +6,8 @@
 // [x] "Export default" the "FeedItem" component!
 
 // Exercise 3: Prop It Up
-// [] Pass in props as params to the component
-// [] Destructure what you need from the props
+// [x] Pass in props as params to the component
+// [x] Destructure what you need from the props
 //    Hint: what do you need in order to get the image to display?
 //    Hint: what do you need in order to get likes to display in the Likes component?
 
@@ -16,10 +16,13 @@ import Likes from "./Likes";
 
 class FeedItem extends Component {
   render() {
+    const { photo } = this.props;
+    const { url, likes } = photo;
+
     return (
       <div className="FeedItem">
-        <img className="Image" />
-        <Likes />
+        <img className="Image" src={url} alt="" />
+        <Likes likesTotal={likes} />
       </div>
     );
   }

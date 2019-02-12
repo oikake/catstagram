@@ -6,18 +6,22 @@
 // [x] "Export default" the "FeedList" component!
 
 // Exercise 3: Prop It Up
-// [] FeedList should accept props as params
-// [] Destructure photos from props
-// [] Iterate over the data and map each photo data to a FeedItem
+// [x] FeedList should accept props as params
+// [x] Destructure photos from props
+// [x] Iterate over the data and map each photo data to a FeedItem
 
 import React, { Component } from "react";
 import FeedItem from "./FeedItem";
 
 class FeedList extends Component {
   render() {
+    const { photos } = this.props;
+
     return (
       <div className="FeedList">
-        <FeedItem />
+        {photos.map((photo, i) => (
+          <FeedItem photo={photo} key={i} />
+        ))}
       </div>
     );
   }
