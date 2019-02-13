@@ -33,6 +33,9 @@
 // Make sure that function is called on handleSubmit in ImageUploaderForm!
 
 import React, { Component } from "react";
+// import { isURL } from "validator";
+// import request from "request";
+// var urlExists = require("url-exists");
 
 class ImageUploaderForm extends Component {
   constructor(props) {
@@ -50,7 +53,10 @@ class ImageUploaderForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const url = this.state.url;
-    console.log(url);
+    console.log("url: " + url);
+    urlExists(url, function(err, exists) {
+      console.log(exists); // false
+    });
   };
 
   render() {
@@ -60,6 +66,9 @@ class ImageUploaderForm extends Component {
       <form name="ImageUploaderForm">
         <input
           placeholder="Add URL here"
+          type="url"
+          pattern="https?://.+"
+          required
           value={url}
           onChange={this.handleChange}
         />
