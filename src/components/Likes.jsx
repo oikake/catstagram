@@ -15,8 +15,8 @@
 // [x] Hook up the button text to the state
 
 // BONUS: Create a likes counter
-// [] Take in a prop for the number of likes
-// [] Increase or decrease the likes based on whether button click is like/ unlike
+// [x] Take in a prop for the number of likes
+// [x] Increase or decrease the likes based on whether button click is like/ unlike
 //    Hint: take the total likes as a prop, and convert it to state
 
 import React, { Component } from "react";
@@ -38,9 +38,25 @@ class Likes extends Component {
     const { likesNum, liked } = this.state;
 
     this.setState({
-      likesNum: liked ? likesNum - 1 : likesNum + 1,
+      likesNum: likesNum,
       liked: !liked
     });
+  };
+
+  handleLikeIncrementButtonClick = () => {
+    let items = this.state;
+
+    items.likesNum += 1;
+    console.log(items);
+    this.setState(items);
+  };
+
+  handleLikeDecrementButtonClick = () => {
+    let items = this.state;
+
+    items.likesNum -= 1;
+    console.log(items);
+    this.setState(items);
   };
 
   render() {
@@ -48,12 +64,26 @@ class Likes extends Component {
 
     return (
       <div className="Likes">
-        <span>
-          <strong>{likesNum}</strong> total likes
+        <span className="likes-text-container">
+          <strong>{likesNum}</strong> total likes {liked ? " +1" : ""}
         </span>
-        <button className="LikesButton" onClick={this.handleLikeButtonClick}>
-          {liked ? "Liked!" : "Not liked (yet)"}
-        </button>
+        <span className="likes-buttons-container">
+          <button
+            className="LikesButton"
+            onClick={this.handleLikeDecrementButtonClick}
+          >
+            -
+          </button>
+          <button
+            className="LikesButton"
+            onClick={this.handleLikeIncrementButtonClick}
+          >
+            +
+          </button>
+          <button className="LikesButton" onClick={this.handleLikeButtonClick}>
+            {liked ? "Liked!" : "Not liked"}
+          </button>
+        </span>
       </div>
     );
   }
