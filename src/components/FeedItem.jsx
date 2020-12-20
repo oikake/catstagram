@@ -16,13 +16,17 @@ import Likes from "./Likes";
 
 class FeedItem extends Component {
   render() {
+    // console.log(this.props);
     const { photo } = this.props;
-    const { url, likes } = photo;
 
     return (
       <div className="FeedItem">
-        <img className="Image" src={url} alt="" />
-        <Likes likesTotal={likes} />
+        <span>
+          {photo.id}: <strong>{photo.title}</strong>
+        </span>
+        <img className="Image" src={photo.url} alt="" />
+        <p>{photo.url}</p>
+        <Likes likesTotal={photo.likes} />
       </div>
     );
   }

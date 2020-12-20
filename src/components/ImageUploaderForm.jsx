@@ -17,17 +17,17 @@
 //    handleSubmit will be the one submitting - ie console.log the current url in the state for now.
 
 // Exercise 5: BONUS
-// [] Goal: make this form actually upload an image to the feed!
+// [x] Goal: make this form actually upload an image to the feed!
 // When a user inputs a full image url, it should update the
 // feed to include the image as a FeedItem!
 
-// [] All the data for the photos are located in HomePage -
+// [x] All the data for the photos are located in HomePage -
 // so how do you get data from the user input of the ImageUploaderForm
 // to the HomePage component and update the photo data?
 // First of all the, photo data in HomePage will be updating (somehow, more on that later).  As such, if
 // data is going to change inside of a component, what should you put it in (hint: internal state!)
 
-// [] Then, how are you going to get the new photo url from ImageUploaderForm back to Homepage?
+// [x] Then, how are you going to get the new photo url from ImageUploaderForm back to Homepage?
 // Pass in a function called handleAddPhoto from HomePage to ImageUploaderForm that
 // takes the url of the photo updates photos state with by creating a new object in the photos data.
 // Make sure that function is called on handleSubmit in ImageUploaderForm!
@@ -38,23 +38,28 @@ class ImageUploaderForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: ""
+      userInput: ""
     };
   }
 
   handleChange = e => {
     const url = e.target.value;
-    this.setState({ url: url });
+    this.setState({ userInput: url });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const url = this.state.url;
-    console.log(url);
+    const url = this.state.userInput;
+    console.log("submitting: " + url);
+
+    this.props.handleAddPhoto(url);
+    this.setState({
+      userInput: url
+    });
   };
 
   render() {
-    const { url } = this.state.url;
+    const { url } = this.state.userInput;
 
     return (
       <form name="ImageUploaderForm">

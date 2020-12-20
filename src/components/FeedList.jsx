@@ -14,16 +14,26 @@ import React, { Component } from "react";
 import FeedItem from "./FeedItem";
 
 class FeedList extends Component {
-  render() {
-    const { photos } = this.props;
+  handleFeedListOrder = () => {
+    const photos = [...this.props.photos];
 
-    return (
-      <div className="FeedList">
-        {photos.map((photo, i) => (
-          <FeedItem photo={photo} key={i} />
-        ))}
-      </div>
-    );
+    // TODO: toggle order by date, ascending, descending. etc
+    photos.reverse();
+
+    return {
+      photos
+    };
+  };
+
+  render() {
+    const { photos } = this.handleFeedListOrder();
+    console.log(photos);
+
+    const feedItems = photos.map(photo => (
+      <FeedItem photo={photo} key={photo.id} />
+    ));
+
+    return <div className="FeedList">{feedItems}</div>;
   }
 }
 
